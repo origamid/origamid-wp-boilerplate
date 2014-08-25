@@ -1,0 +1,79 @@
+// Colors
+
+// $bege--light: #efe3c8;
+// $bege--dark: #bcb39d;
+
+
+// Images
+
+//$bg--dark: url('img/bg-dark.png');
+//$bg--light: url('img/bg-light.png');
+
+ 
+// Mixins
+
+@mixin typePrimary {
+	font-weight: normal;
+	font-family: "Helvetica", "Arial", sans-serif;
+}
+
+@mixin typeSecondary {
+	font-weight: normal;
+	font-family: "Georgia", serif;
+}
+
+@mixin type-1($size) {
+	@include typePrimary;
+	@if $size == 14 {
+		font-size: 0.875em;
+		line-height: 1.42857142857143em;	
+	}
+	@if $size == 18 {
+		font-size: 1.125em;
+		line-height: 1.3888889em;	
+	}
+	@if $size == 24 {
+		font-size: 1.5em;
+		line-height: 1.25em;	
+	}
+	@if $size == 36 {
+		font-size: 2.25em;
+		line-height: 1.6666667em;	
+	}
+	@if $size == 48 {
+		font-size: 3em;
+		line-height: 1em;	
+	}
+	@if $size == 60 {
+		font-size: 3.75em;
+		line-height: 1em;	
+	}
+}
+
+@mixin type-2($size) {
+	@include typeSecondary;
+	@if $size == 14 {
+		font-size: 0.875em;
+		line-height: 1.42857142857143em;	
+	}
+	@if $size == 18 {
+		font-size: 1.125em;
+		line-height: 1.3888889em;	
+	}
+	@if $size == 24 {
+		font-size: 1.5em;
+		line-height: 1.25em;	
+	}
+	@if $size == 36 {
+		font-size: 2.25em;
+		line-height: 1.6666667em;	
+	}
+	@if $size == 48 {
+		font-size: 3em;
+		line-height: 1em;	
+	}
+	@if $size == 60 {
+		font-size: 3.75em;
+		line-height: 1em;	
+	}
+}

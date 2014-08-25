@@ -1,0 +1,51 @@
+.form {
+	input, textarea {
+		-webkit-appearance: none;
+		outline: none;
+		width: 100%;
+		padding: 5px 0 5px 10px;
+		height: 35px;
+		background: #333;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		margin-bottom: 10px;
+		border: none;
+		color: #FFF;
+		@include type-2(14);
+		&:hover, &:active, &:focus {
+			outline: none;
+ 			background: #333;
+ 		}
+	}
+	textarea {
+		height: 200px;
+		margin-bottom: 20px;
+	}
+}
+
+#enviar {
+	display: block;
+	@include type-1(18);
+	border: 0px solid;
+	border-left: 5px solid $blue;
+	background: #333;
+	width: 250px;
+	padding: 13px 0 0 0;
+	text-align: center;
+	color: #FFF;
+	&:hover, &:focus {
+		background: #444;
+		border-left: 20px solid #333;
+	}
+}
+
+#form__notification {
+	@include type-1(18);
+	color: green;
+}
+
+#form__notification--error {
+	@include type-1(18);
+	color: red;
+}
