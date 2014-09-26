@@ -23,17 +23,20 @@
 	<title> - </title>
 	<meta name="description" content="">
 	<meta name="keywords" content=""/>
+
 	<meta name="author" content="Origamid"/>
 
 	<meta property="og:title" content=" - "/>
 	<meta property="og:description" content=" - "/>
 	<meta property="og:type" content="website"/>
 	<meta property="og:url" content=""/>
-	<meta property="og:image" content="http://domain/img/og-image.png"/>
+	<meta property="og:image" content="img/og-image.png"/>
 	<meta property="og:site_name" content=""/>
 
 	<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
 	<link rel="shortcut icon" href="favicon.ico">
 
 	<link rel="stylesheet" href="style.css">

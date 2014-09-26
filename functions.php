@@ -27,7 +27,8 @@ function my_login_logo() { ?>
 	<style type="text/css">
 		body.login div#login h1 a {
 			background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/img/og-image.png);
-			padding-bottom: 30px;
+			padding-bottom: 20px;
+			margin-top: -60px;
 			background-size: 300px 300px;
 			width: 300px;
 			height: 300px;
@@ -72,42 +73,53 @@ function wpse126301_dashboard_columns() {
 }
 add_action( 'admin_head-index.php', 'wpse126301_dashboard_columns' );
 
+// Remove link das imagens inseridas com o editor
+
+function rkv_imagelink_setup() {
+	$image_set = get_option( 'image_default_link_type' );
+	
+	if ($image_set !== 'none') {
+		update_option('image_default_link_type', 'none');
+	}
+}
+add_action('admin_init', 'rkv_imagelink_setup', 10);
+
 // Custom Posts Types Vão Aqui
 
 // Custom post de Produtos
 
-add_action('init', 'cptui_register_my_cpt_produtos');
-function cptui_register_my_cpt_produtos() {
-register_post_type('produtos', array(
-'label' => 'Produtos',
-'description' => 'Produtos',
-'public' => true,
-'show_ui' => true,
-'show_in_menu' => true,
-'capability_type' => 'post',
-'map_meta_cap' => true,
-'hierarchical' => false,
-'rewrite' => array('slug' => 'produtos', 'with_front' => true),
+// add_action('init', 'cptui_register_my_cpt_produtos');
+// function cptui_register_my_cpt_produtos() {
+// register_post_type('produtos', array(
+// 'label' => 'Produtos',
+// 'description' => 'Produtos',
+// 'public' => true,
+// 'show_ui' => true,
+// 'show_in_menu' => true,
+// 'capability_type' => 'post',
+// 'map_meta_cap' => true,
+// 'hierarchical' => false,
+// 'rewrite' => array('slug' => 'produtos', 'with_front' => true),
 
-'query_var' => true,
-'supports' => array('title','page-attributes','post-formats'),
-'labels' => array (
-	'name' => 'Produtos',
-	'singular_name' => 'Produto',
-	'menu_name' => 'Produtos',
-	'add_new' => 'Adicionar Novo',
-	'add_new_item' => 'Adicionar Novo Produto',
-	'edit' => 'Editar',
-	'edit_item' => 'Editar Produto',
-	'new_item' => 'Novo Produto',
-	'view' => 'Ver Produto',
-	'view_item' => 'Ver Produto',
-	'search_items' => 'Procurar Produtos',
-	'not_found' => 'Nenhum Produto Encontrado',
-	'not_found_in_trash' => 'Nenhum Produto Encontrado no Lixo',
-	'parent' => 'Parent Produto',
-)
-) ); }
+// 'query_var' => true,
+// 'supports' => array('title','page-attributes','post-formats'),
+// 'labels' => array (
+// 	'name' => 'Produtos',
+// 	'singular_name' => 'Produto',
+// 	'menu_name' => 'Produtos',
+// 	'add_new' => 'Adicionar Novo',
+// 	'add_new_item' => 'Adicionar Novo Produto',
+// 	'edit' => 'Editar',
+// 	'edit_item' => 'Editar Produto',
+// 	'new_item' => 'Novo Produto',
+// 	'view' => 'Ver Produto',
+// 	'view_item' => 'Ver Produto',
+// 	'search_items' => 'Procurar Produtos',
+// 	'not_found' => 'Nenhum Produto Encontrado',
+// 	'not_found_in_trash' => 'Nenhum Produto Encontrado no Lixo',
+// 	'parent' => 'Parent Produto',
+// )
+// ) ); }
 
 // Final dos custom posts
 
