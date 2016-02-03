@@ -1,5 +1,7 @@
 <?php
-// Template Geral
+/*
+Template Name: Home
+*/
 get_header();
 ?>
 
@@ -15,14 +17,6 @@ get_header();
 		</div>
 	</article>
 
-<?php endwhile; else : ?>
-
-	<article>
-		<div class="entry-content">
-			<p>Conteúdo não encontrado</p>
-		</div>
-	</article>
-
-<?php endif; ?>
+<?php endwhile; else : endif; ?>
 
 <?php get_footer(); ?>

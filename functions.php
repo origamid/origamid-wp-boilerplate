@@ -1,12 +1,37 @@
 <?php
 
+// Função para registrar os Scripts e o CSS
+function origamid_scripts() {
+	if ( ! is_admin() ) {
+		wp_deregister_script('jquery');
+		wp_register_script( 'jquery', get_template_directory_uri() . '/js/libs/jquery-1.12.0.min.js', array(), "1.12.0", true );
+	}
+	wp_register_script( 'plugins-script', get_template_directory_uri() . '/js/plugins.min.js', array( 'jquery' ), false, true );
+	wp_register_script( 'main-script', get_template_directory_uri() . '/js/main.min.js', array( 'jquery', 'plugins-script' ), false, true );
+	wp_register_script( 'modernizr', get_template_directory_uri() . '/js/libs/modernizr-custom.js', array(), false, false );
+
+	wp_enqueue_script( 'modernizr' );
+	wp_enqueue_script( 'main-script' );
+}
+add_action( 'wp_enqueue_scripts', 'origamid_scripts' );
+
+function origamid_css() {
+	wp_register_style( 'main-style', get_template_directory_uri() . '/style.css', array(), false, false );
+	wp_enqueue_style( 'main-style' );
+}
+add_action( 'wp_enqueue_scripts', 'origamid_css' );
+
 // Funções para Limpar o Header
 remove_action('wp_head', 'rsd_link');
 remove_action('wp_head', 'wlwmanifest_link');
 remove_action('wp_head', 'start_post_rel_link', 10, 0 );
 remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
-remove_action('wp_head', 'feed_links_extra', 3 );
-remove_action('wp_head', 'wp_generator' );
+remove_action('wp_head', 'feed_links_extra', 3);
+remove_action('wp_head', 'wp_generator');
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('admin_print_scripts', 'print_emoji_detection_script');
+remove_action('wp_print_styles', 'print_emoji_styles');
+remove_action('admin_print_styles', 'print_emoji_styles');
 
 // Habilitar Menus
 
@@ -14,9 +39,9 @@ add_theme_support('menus');
 
 // Diferentes tamanhos de imagens
 
-if ( function_exists( 'add_image_size' ) ) { 
-	add_image_size( 'titulo', 1400, 560, true );
-	add_image_size( 'titulo_m', 800, 560, true );
+if ( function_exists( 'add_image_size' ) ) {
+	//add_image_size( 'titulo', 1400, 560, true );
+	//add_image_size( 'titulo_m', 800, 560, true );
 }
 
 // Modificando o Wordpress para o Cliente
@@ -77,7 +102,7 @@ add_action( 'admin_head-index.php', 'wpse126301_dashboard_columns' );
 
 function rkv_imagelink_setup() {
 	$image_set = get_option( 'image_default_link_type' );
-	
+
 	if ($image_set !== 'none') {
 		update_option('image_default_link_type', 'none');
 	}

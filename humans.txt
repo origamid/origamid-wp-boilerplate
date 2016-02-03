@@ -7,5 +7,5 @@
 
 # TECHNOLOGY COLOPHON
 	HTML5, CSS3
-	Normalize.css, jQuery, Modernizr, Grunt, Sass
-	IDE: Sublime Text, Photoshop, Illustrator
+	Normalize.css, jQuery, Modernizr, Gulp, Sass, Vagrant
+	IDE: Atom, Photoshop, Illustrator
