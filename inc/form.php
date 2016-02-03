@@ -10,7 +10,7 @@ $dontchange = $_POST['dontchange'];
 
 $body = '<div style="max-width: 400px;">' . $mensagem . '</div> <br/>------------ <br/>Nome: ' . $nome . '<br/>' . $email;
 
-$to = '<?php get_option( 'admin_email' ); ?>'; // Mudar aqui o e-mail;
+$to = get_option( 'admin_email' ); // Mudar aqui o e-mail;
 $subject = 'Formulário - ' . $nome;
 $headers = 'Reply-To: <' . $nome . '> ' . $email;
 

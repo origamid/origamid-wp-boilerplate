@@ -28,7 +28,7 @@ gulp.task('sass', function(){
 gulp.task('plugins-script', function() {
 	gulp.src('js/plugins/*.js')
 		.pipe(plumber())
-		.pipe(concat('plugins.js'))
+		.pipe(concat('plugins.min.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest('js/'))
 		.pipe(browserSync.reload({ stream: true }))
@@ -38,7 +38,7 @@ gulp.task('plugins-script', function() {
 gulp.task('main-script', function() {
 	gulp.src('js/main/*.js')
 		.pipe(plumber())
-		.pipe(concat('main.js'))
+		.pipe(concat('main.min.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest('js/'))
 		.pipe(browserSync.reload({ stream: true }))

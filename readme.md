@@ -11,28 +11,24 @@ Ela já está pronta para a implementação do Wordpress após o desenvolvimento
 #### CSS
 - CSS3
 - SASS
-- Bourbon
 
 #### JS
-- Grunt
+- Gulp
 - Jquery
 - Modernizr
 - Visibility
-- Waypoints
-- JS Concat
 - Uglify
 - Node.js
 
 #### PHP
 - Wordpress
-- PHPMailer
 
 #### Outras
 - RSYNC
 
 #### Software
-- Sublime Text
-- Ampps
+- Atom
+- Vagrant
 - Coda
 - iTerm
 
@@ -40,8 +36,6 @@ Ela já está pronta para a implementação do Wordpress após o desenvolvimento
 
 1. Baixar e extrair o zip
 2. Entrar na pasta pelo Terminal
-3. Usar o comando $sudo npm install (para configurar o grunt)
-4. Iniciar o grunt
+3. Usar o comando $ sudo npm install (para configurar o gulp)
+4. Iniciar o gulp
 5. Mudar o rsync para a sua hospedagem
-
-- O arquivo enviar.php deve ser editado para o funcionamento do formulário
