@@ -10,10 +10,16 @@ a {
 }
 
 img {
+	display: block;
 	max-width: 100%;
 }
 
 .hidden {
 	display: none !important;
 	visibility: hidden !important;
+}
+
+*, ::after, ::before {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 }

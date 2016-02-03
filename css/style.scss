@@ -1,23 +1,16 @@
 /*!
-Theme Name: Nome do Tema
+Theme Name: Origamid Boilerplate
 Theme URI: url do tema
 Author: Origamid
 Author URI: http://origamid.com/
 Description: Criado para empresa do tema.
 Version: 1.0
-Tags: Tag do tema
 */
 
-// BOURBON
+// Global & Grid
 
-@import "bourbon";
-
-// BOILERPLATE
-
-@import "boilerplate/reset";
-@import "boilerplate/grid";
-
-// GLOBAL
+@import "global/reset";
+@import "grid/grid";
 
 @import "global/fonts";
 @import "global/variables-mixins";

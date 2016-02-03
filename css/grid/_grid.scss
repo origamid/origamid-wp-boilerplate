@@ -1,0 +1,152 @@
+// Grid Mixins
+
+@mixin d($device) {
+  @if $device == s {
+    @media only screen and (min-width: 960px) { @content; }
+  }
+  @if $device == s-t {
+    @media only screen and (min-width: 768px) { @content; }
+  }
+  @if $device == t {
+    @media only screen and (min-width: 768px) and (max-width: 959px) { @content; }
+  }
+  @if $device == t-m {
+    @media only screen and (max-width: 959px) { @content; }
+  }
+  @else if $device == m {
+    @media only screen and (max-width: 767px)  { @content; }
+  }
+}
+
+$enable-flex: false;
+$enable-grid-classes: true;
+
+// Bootstrap Grid only
+//
+// Includes relevant variables and mixins for the regular (non-flexbox) grid
+// system, as well as the generated predefined classes (e.g., `.col-4-sm`).
+
+
+//
+// Variables
+//
+
+
+// Grid breakpoints
+//
+// Define the minimum and maximum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: (
+  // Extra small screen / phone
+  xs-: 0,
+  // Small screen / phone
+  : 740px,
+) !default;
+
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+$container-max-widths: (
+  sm: 576px,
+  md: 720px,
+  lg: 940px,
+  xl: 1140px
+) !default;
+
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+
+$grid-columns: 12 !default;
+$grid-gutter-width: 1.875rem !default; // 30px
+$margin: 1.875rem; // 30px
+
+//
+// Grid mixins
+//
+
+@import "mixins/clearfix";
+@import "mixins/breakpoints";
+@import "mixins/grid-framework";
+@import "mixins/grid";
+
+// Container widths
+//
+// Set the container width, and override it for fixed navbars in media queries.
+
+.container {
+  @include make-container();
+  @include make-container-max-widths();
+
+}
+
+// Fluid container
+//
+// Utilizes the mixin meant for fixed width containers, but without any defined
+// width for fluid, full width layouts.
+
+.container-fluid {
+  @include make-container();
+  padding: 0px;
+}
+
+
+// Row
+//
+// Rows contain and clear the floats of your columns.
+
+@if $enable-grid-classes {
+  .row {
+    @include make-row();
+  }
+}
+
+
+// Columns
+//
+// Common styles for small and large grid columns
+
+@if $enable-grid-classes {
+  @include make-grid-columns();
+}
+
+
+// Flex variation
+//
+// Custom styles for additional flex alignment options.
+
+@if $enable-flex and $enable-grid-classes {
+
+  // Flex column reordering
+
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      .col-#{$breakpoint}-first { order: -1; }
+      .col-#{$breakpoint}-last  { order: 1; }
+    }
+  }
+
+  // Alignment for every column in row
+
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      .row-#{$breakpoint}-top    { align-items: flex-start; }
+      .row-#{$breakpoint}-center { align-items: center; }
+      .row-#{$breakpoint}-bottom { align-items: flex-end; }
+    }
+  }
+
+  // Alignment per column
+
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      .col-#{$breakpoint}-top    { align-self: flex-start; }
+      .col-#{$breakpoint}-center { align-self: center; }
+      .col-#{$breakpoint}-bottom { align-self: flex-end; }
+    }
+  }
+}

@@ -1,16 +1,17 @@
 {
   "name": "origamid-boilerplate",
-  "version": "1.0.3",
-  "dependencies": {},
+  "version": "2.0.3",
   "devDependencies": {
-    "grunt": "~0.4.5",
-    "grunt-contrib-concat": "^0.5.0",
-    "grunt-contrib-imagemin": "~0.8.0",
-    "grunt-contrib-uglify": "~0.5.1",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-rsync": "~0.6.2",
-    "grunt-sass": "~0.14.0",
-    "node-bourbon": "~1.2.3",
-    "matchdep": "~0.3.0"
+    "browser-sync": "^2.11.1",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "~2.6.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-rsync": "~0.0.5",
+    "gulp-sass": "^2.1.1",
+    "gulp-uglify": "~1.5.1",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "~4.3.5",
+    "matchdep": "~1.0.0"
   }
 }
