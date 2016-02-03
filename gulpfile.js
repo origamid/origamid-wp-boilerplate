@@ -46,11 +46,14 @@ gulp.task('main-script', function() {
 
 // BrowserSync Function
 gulp.task('browserSync', function() {
-  browserSync({
-    server: {
-      baseDir: './'
-    },
-  })
+	var files = [
+		'./style.css',
+		'./*.php'
+	];
+	browserSync.init(files, {
+	proxy: "dominio.com",
+	notify: false
+	});
 });
 
 // Watch Function
@@ -80,8 +83,8 @@ gulp.task('deploy', function() {
 			'*.sublime-project'
 		],
 		root: './',
-		hostname: 'carrolluser@aaroncarrollhealth.com',
-		destination: 'aaroncarrollhealth.com/',
+		hostname: 'user@host',
+		destination: 'dest/',
 		recursive: true,
 		clean: true,
 		progress: true
